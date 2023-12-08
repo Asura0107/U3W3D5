@@ -1,0 +1,41 @@
+<div class="container primo">
+  <form #form="ngForm" (ngSubmit)="accedi(form)" class="p-3">
+    <h5 class="text-white text-center mb-3">Login</h5>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="form-control mb-2"
+        ngModel
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        class="form-control"
+        ngModel
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-success mt-3"
+      [disabled]="form.invalid"
+    >
+      Accedi
+    </button>
+  </form>
+</div>
+<p class="text-white container secondo">
+  <a class="text-white" [routerLink]="['/login']" routerLinkActive="active"
+    >accedi</a
+  >/<a class="text-white" [routerLink]="['/register']" routerLinkActive="active"
+    >registrati</a
+  >
+</p>

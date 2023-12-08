@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+body{
+    background-color: #3d3b3b;
+}
+.sidebar{
+    width: 400px;
+    background-color:grey ;
+    overflow: hidden;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+// .principale{
+//     // width: 70%;
+// }
