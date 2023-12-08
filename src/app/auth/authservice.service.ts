@@ -15,7 +15,9 @@ export class AuthserviceService {
   user$ = this.authSubj.asObservable();
   utente!: Authint;
   constructor(private http: HttpClient, private router: Router) {}
-
+  getname() {
+    return this.utente.user.nome;
+  }
   login(data: { email: string; password: string }) {
     return this.http.post<Authint>(`${this.apiURL}/login`, data).pipe(
       tap((loggato) => {

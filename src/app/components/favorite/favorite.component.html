@@ -1,22 +1,17 @@
 <div class="d-flex">
-  <div class="sidebar">
-    <div>
-      <a [routerLink]="['/favorite']" routerLinkActive="active">favorite</a>
-    </div>
-    <div>
-      <a [routerLink]="['/profile']" routerLinkActive="active">profile</a>
-    </div>
-  </div>
-  <div class="row principale">
-    <div class="col-3" *ngFor="let film of movie">
+  <div class="row principale mt-5">
+    <div
+      class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mb-4"
+      *ngFor="let film of movie"
+    >
       <div class="card" style="width: 18rem">
-        <img src="" class="card-img-top" alt="" />
+        <img
+          src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}"
+          class="card-img-top"
+          alt=""
+        />
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <!-- <p class="card-text">
-                  {{ item.description }}
-                </p> -->
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
         <div>
           <svg
