@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ServiceService } from 'src/app/service/service.service';
-import { Movie, Fav } from 'src/app/models/movie';
+import { Movie } from 'src/app/models/movie';
 @Component({
   selector: 'app-firstpage',
   templateUrl: './firstpage.component.html',
