@@ -25,13 +25,13 @@ export class FirstpageComponent implements OnInit {
       console.log(risultato);
     });
   }
-  addToFavs(id: number) {
+  addToFavs(id: number, poster: string) {
     // const userId = this.aut.getuserid();
     const user = localStorage.getItem('user');
     if (user !== null) {
       const userData = JSON.parse(user);
       console.log(userData.user.id);
-      this.userSrv.addToFavs(userData.user.id, id).subscribe((hope) => {
+      this.userSrv.addToFavs(userData.user.id, id, poster).subscribe((hope) => {
         // this.fav.push(hope);
         console.log(hope);
       });

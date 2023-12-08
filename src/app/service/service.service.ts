@@ -20,8 +20,12 @@ export class ServiceService {
     return this.movie.id;
   }
 
-  addToFavs(userId: number, movieId: number) {
-    return this.http.post<Fav>(`${this.url}/favorites`, { userId, movieId });
+  addToFavs(userId: number, movieId: number, poster_path: string) {
+    return this.http.post<Fav>(`${this.url}/favorites`, {
+      userId,
+      movieId,
+      poster_path,
+    });
   }
   favList(userId: number) {
     return this.http.get<Fav[]>(`${this.url}/favorites?userId=${userId}`);
