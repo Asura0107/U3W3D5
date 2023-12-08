@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthserviceService } from '../auth/authservice.service';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,21 @@ export class ServiceService {
   }
   favList(userId: number) {
     return this.http.get<Fav[]>(`${this.url}/favorites?userId=${userId}`);
+  }
+
+  removeFromFav(id: number) {
+    console.log('Removing from favorites. ID:', id);
+    const url = `${this.url}/favorites/${id}`;
+
+    return this.http.delete<Fav>(url).pipe(
+      map((response) => {
+        console.log('Successfully removed from favorites:', response);
+        return response;
+      }),
+      catchError((error) => {
+        console.error('Error removing from favorites:', error);
+        throw error;
+      })
+    );
   }
 }

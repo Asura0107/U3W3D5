@@ -12,6 +12,7 @@ export class FirstpageComponent implements OnInit {
   sub!: Subscription;
   movie: Movie[] | undefined;
   fav!: Fav[];
+  addlist: { [key: number]: boolean } = {};
   constructor(
     private userSrv: ServiceService // private aut: AuthserviceService
   ) {}
@@ -31,9 +32,12 @@ export class FirstpageComponent implements OnInit {
     if (user !== null) {
       const userData = JSON.parse(user);
       console.log(userData.user.id);
+      console.log(id);
+
       this.userSrv.addToFavs(userData.user.id, id, poster).subscribe((hope) => {
         // this.fav.push(hope);
         console.log(hope);
+        this.addlist[id] = true;
       });
       console.log(this.fav);
     } else {

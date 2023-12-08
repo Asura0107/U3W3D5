@@ -12,6 +12,8 @@ import { Subscription } from 'rxjs';
 export class FavoriteComponent implements OnInit {
   sub!: Subscription;
   movie: Fav[] = [];
+  addedtolist: boolean = false;
+
   constructor(public prdSrv: ServiceService) {}
 
   ngOnInit(): void {
@@ -31,5 +33,14 @@ export class FavoriteComponent implements OnInit {
     } else {
       console.log('No user data found in local storage');
     }
+  }
+
+  remove(id: number) {
+    console.log(id);
+    this.prdSrv.removeFromFav(id).subscribe((risultato) => {
+      console.log(risultato);
+      // dopo aver rimosso l'id, il filter si va a riprendere tutti gli elelmenti che hanno l'id diverso da quello selezionato ed aggiorna l'arry
+      this.movie = this.movie.filter((favorite) => favorite.id !== id);
+    });
   }
 }
