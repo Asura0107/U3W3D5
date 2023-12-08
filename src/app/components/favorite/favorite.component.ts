@@ -11,16 +11,25 @@ import { Subscription } from 'rxjs';
 })
 export class FavoriteComponent implements OnInit {
   sub!: Subscription;
-  movie: Fav[] | undefined;
+  movie: Fav[] = [];
   constructor(public prdSrv: ServiceService) {}
 
   ngOnInit(): void {
     this.recupera();
   }
   recupera() {
-    this.sub = this.prdSrv.favList().subscribe((risultato) => {
-      // this.movie = risultato;
-      console.log(risultato);
-    });
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+      const userData = JSON.parse(user);
+      console.log(userData.user.id);
+      this.sub = this.prdSrv
+        .favList(userData.user.id)
+        .subscribe((risultato) => {
+          this.movie = risultato;
+          console.log(risultato);
+        });
+    } else {
+      console.log('No user data found in local storage');
+    }
   }
 }

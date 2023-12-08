@@ -16,4 +16,8 @@ export class NavbarComponent implements OnInit {
       this.utente = _user;
     });
   }
+
+  exit() {
+    this.authSrv.logout();
+  }
 }

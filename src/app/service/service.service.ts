@@ -10,16 +10,20 @@ import { AuthserviceService } from '../auth/authservice.service';
 })
 export class ServiceService {
   favs: Fav[] = [];
+  movie!: Movie;
   url = environment.apiURL;
   constructor(private http: HttpClient, private aut: AuthserviceService) {}
   getproducts() {
     return this.http.get<Movie[]>(`${this.url}/movies-popular`);
   }
+  getmovieid() {
+    return this.movie.id;
+  }
 
-  addToFavs() {}
-  favList() {
-    return this.http.get<Fav[]>(
-      `${this.url}/favorites?userId=${this.aut.getuserid()}`
-    );
+  addToFavs(userId: number, movieId: number) {
+    return this.http.post<Fav>(`${this.url}/favorites`, { userId, movieId });
+  }
+  favList(userId: number) {
+    return this.http.get<Fav[]>(`${this.url}/favorites?userId=${userId}`);
   }
 }
