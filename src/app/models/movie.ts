@@ -3,6 +3,7 @@ export interface Movie {
   poster_path: string;
   title: string;
   addlist: boolean;
+  vote_average: number;
 }
 export interface Fav {
   movieId: number;
@@ -10,4 +11,5 @@ export interface Fav {
   userId: number;
   poster_path: string;
   title: string;
+  vote_average: number;
 }

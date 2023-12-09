@@ -14,18 +14,24 @@ export class ServiceService {
   movie!: Movie;
   url = environment.apiURL;
   constructor(private http: HttpClient, private aut: AuthserviceService) {}
-  getproducts() {
+  getfilms() {
     return this.http.get<Movie[]>(`${this.url}/movies-popular`);
   }
   getmovieid() {
     return this.movie.id;
   }
 
-  addToFavs(userId: number, movieId: number, poster_path: string) {
+  addToFavs(
+    userId: number,
+    movieId: number,
+    poster_path: string,
+    vote_average: number
+  ) {
     return this.http.post<Fav>(`${this.url}/favorites`, {
       userId,
       movieId,
       poster_path,
+      vote_average,
     });
   }
   favList(userId: number) {

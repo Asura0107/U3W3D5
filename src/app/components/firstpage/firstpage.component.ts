@@ -21,12 +21,12 @@ export class FirstpageComponent implements OnInit {
     this.recupera();
   }
   recupera() {
-    this.sub = this.userSrv.getproducts().subscribe((risultato) => {
+    this.sub = this.userSrv.getfilms().subscribe((risultato) => {
       this.movie = risultato;
       console.log(risultato);
     });
   }
-  addToFavs(id: number, poster: string) {
+  addToFavs(id: number, poster: string, vote_average: number) {
     // const userId = this.aut.getuserid();
     const user = localStorage.getItem('user');
     if (user !== null) {
@@ -34,11 +34,13 @@ export class FirstpageComponent implements OnInit {
       console.log(userData.user.id);
       console.log(id);
 
-      this.userSrv.addToFavs(userData.user.id, id, poster).subscribe((hope) => {
-        // this.fav.push(hope);
-        console.log(hope);
-        this.addlist[id] = true;
-      });
+      this.userSrv
+        .addToFavs(userData.user.id, id, poster, vote_average)
+        .subscribe((hope) => {
+          // this.fav.push(hope);
+          console.log(hope);
+          this.addlist[id] = true;
+        });
       console.log(this.fav);
     } else {
       console.log('No user data found in local storage');

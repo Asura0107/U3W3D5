@@ -19,19 +19,15 @@
       "userId": 3,
       "movieId": 567189,
       "poster_path": "/zisnDuZBQWzio4ylon8AElnat7V.jpg",
+      "vote_average": 7.3,
       "id": 1
     },
     {
       "userId": 3,
-      "movieId": 811367,
-      "poster_path": "/A5aMLpqnvF3IfJ9RRnLwntIMtrm.jpg",
-      "id": 8
-    },
-    {
-      "userId": 3,
-      "movieId": 726684,
-      "poster_path": "/tf9nWFyJ745mBFkXZtPWabDYBR3.jpg",
-      "id": 10
+      "movieId": 578701,
+      "poster_path": "/qDGaNdeIwgHHXKYypo19oupxnrK.jpg",
+      "vote_average": 7.1,
+      "id": 2
     }
   ],
   "movies-popular": [
