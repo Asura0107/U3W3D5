@@ -13,6 +13,7 @@ import { Route, RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FirstpageComponent } from './components/firstpage/firstpage.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { AuthGuard } from './auth/auth.guard';
 const routes: Route[] = [
   {
     path: '',
@@ -29,14 +30,17 @@ const routes: Route[] = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'firstpage',
     component: FirstpageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'favorite',
     component: FavoriteComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

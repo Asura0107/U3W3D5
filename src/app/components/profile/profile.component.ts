@@ -7,11 +7,19 @@ import { AuthserviceService } from 'src/app/auth/authservice.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  utente!: Authint[];
-
-  constructor(private autSrv: AuthserviceService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.autSrv.restore();
+    // this.autSrv.restore();
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+      const userData = JSON.parse(user);
+      console.log(userData.user.nome);
+      const nome = userData.user.nome;
+      const email = userData.user.email;
+      let div = document.querySelector('.profilo') as HTMLElement;
+      div.innerHTML = `<p>user: ${nome}</p>
+      <p>email: ${email}</p>`;
+    }
   }
 }

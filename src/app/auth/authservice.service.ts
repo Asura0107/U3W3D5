@@ -36,6 +36,9 @@ export class AuthserviceService {
   getuserid() {
     return this.utente.user.id;
   }
+  getnome() {
+    return this.utente.user.nome;
+  }
   restore() {
     const user = localStorage.getItem('user');
     if (!user) {
