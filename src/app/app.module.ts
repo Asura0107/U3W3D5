@@ -61,13 +61,7 @@ const routes: Route[] = [
     FormsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true,
-    // },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
